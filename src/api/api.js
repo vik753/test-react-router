@@ -47,10 +47,11 @@ export const getPostCommentsApi = async (postId) => {
   }
 };
 
-export const getAuthCreds = async () => {
+export const getAuthCreds = () => {
   try {
-    const credsResponse = await axios.get("http://185.233.119.26:3004/auth");
-    return credsResponse.data;
+    // const credsResponse = await axios.get("http://localhost:3004/auth");
+    // return credsResponse.data;
+    return { login: "login", password: "Login123" };
   } catch (e) {
     console.log("getAuthCreds api Error: ", e);
   }
