@@ -1,0 +1,73 @@
+.my_container {
+  width: 100vw;
+}
+
+.authForm {
+  padding: 3rem;
+  background: #e3f5df;
+  min-width: 300px;
+  width: 33vw;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  margin: 3rem auto 0;
+}
+
+.authInputs {
+  width: 100%;
+  border: 2px solid #74bb5e;
+  border-radius: 0.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4px;
+  padding: 0.25rem 0.35rem;
+
+
+  &:focus {
+    outline: none;
+  }
+
+  &_error {
+    border-color: #dc3f23;
+  }
+}
+
+.input_tip {
+  font-style: initial;
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+  color: #828282;
+}
+
+.authSubmitBtn {
+  margin: 2rem auto 0;
+  padding: 4px 20px;
+  background: #74bb5e;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+
+  &:hover {
+    background: #fff;
+    border: 1px solid #74bb5e;
+    color: #74bb5e;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    background: #b9bab9;
+    border: 1px solid transparent;
+
+    &:hover {
+      background: #b9bab9;
+      border: 1px solid transparent;
+      color: #fff;
+    }
+  }
+}
+
+.login_error {
+  color: #dc3f23;
+  text-align: center;
+}

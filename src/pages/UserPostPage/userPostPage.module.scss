@@ -1,0 +1,46 @@
+.title {
+
+}
+
+.post_container {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-evenly;
+}
+
+.post {
+  padding: 1rem;
+  margin: 0 0.5rem 1rem 0;
+  max-width: 45%;
+  min-width: 400px;
+  box-shadow: 0 0 12px 4px rgba(0,0,0,0.1);
+  align-self: stretch;
+
+  @media (max-width: 550px) {
+    min-width: 300px;
+  }
+
+  @media (max-width: 990px) {
+    max-width: 80%;
+  }
+}
+
+.comments_container {
+  cursor: pointer;
+
+  .title_container {
+    margin: 0;
+  }
+
+  .comments_box {
+    opacity: 0;
+    height: 0;
+
+    &_active {
+      opacity: 1;
+      height: auto;
+    }
+  }
+}

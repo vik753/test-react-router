@@ -1,0 +1,31 @@
+.card {
+  padding: 1rem;
+  margin: 0 0.5rem 1rem 0;
+  max-width: 30%;
+  min-width: 300px;
+  cursor: pointer;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+
+  &:hover{
+    transform: scale(1.05);
+  }
+
+  &_title,
+  &_info {
+    color: #828282;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &_info {
+    p {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
