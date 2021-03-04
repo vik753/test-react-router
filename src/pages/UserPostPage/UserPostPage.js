@@ -16,7 +16,7 @@ import { UserLogo } from "../UserLogo/UserLogo";
 import { Loader } from "../LoaderPage/Loader";
 
 export const UserPostPage = () => {
-  const { posts, isLoading } = useSelector((store) => store.rootReducer);
+  const { users, posts, comments, isLoading } = useSelector((store) => store.rootReducer);
   const params = useParams();
   const dispatch = useDispatch();
   const userId = params.userId;
@@ -52,15 +52,24 @@ export const UserPostPage = () => {
   }
 
   const openCommentsHandler = (postId) => {
-    // console.log("isOpenComments", isOpenComments);
-    // isOpenComments[postId]
-    //   ? setOpenComments((state) => (state[postId] = !state[postId]))
-    //   : setOpenComments((state) => (state[postId] = true));
+    if (isOpenComments[postId]) {
+      setOpenComments((state) => ({
+        ...state,
+        [postId]: !state[postId],
+      }));
+    } else {
+      setOpenComments((state) => ({
+        ...state,
+        [postId]: true,
+      }));
+    }
   };
 
   if (isLoading) {
     return <Loader />;
   }
+
+  console.log('comments', comments)
 
   return (
     <div className={`${mainStyles.res_container}`}>
@@ -75,9 +84,11 @@ export const UserPostPage = () => {
             <p>{post.body}</p>
             <div
               className={styles.comments_container}
-              onClick={() => openCommentsHandler(post.id)}
             >
-              <p className={styles.title_container}>
+              <p
+                className={styles.title_container}
+                onClick={() => openCommentsHandler(post.id)}
+              >
                 <b>Comments:</b> see more...
               </p>
               <div
@@ -87,10 +98,9 @@ export const UserPostPage = () => {
                     : styles.comments_box
                 }
               >
-                <p>Comment1</p>
-                <p>Comment2</p>
-                <p>Comment3</p>
-                <p>Comment4</p>
+                {comments[post.id] && comments[post.id].map(comment => (
+                  <div>{comment.name}</div>
+                ))}
               </div>
             </div>
           </div>
@@ -99,6 +109,14 @@ export const UserPostPage = () => {
     </div>
   );
 };
+
+/* comment
+postId,
+id,
+name,
+email,
+body
+* */
 
 /*
 "userId": 2,

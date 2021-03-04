@@ -37,10 +37,12 @@
   .comments_box {
     opacity: 0;
     height: 0;
+    transition: height 0.3s ease-in;
 
     &_active {
       opacity: 1;
-      height: auto;
+      max-height: 200px;
+      overflow-y: scroll;
     }
   }
 }
